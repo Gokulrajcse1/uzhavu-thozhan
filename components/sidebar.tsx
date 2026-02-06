@@ -11,7 +11,7 @@ export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menu = [
-    { name: "Home", icon: <Home size={22} />, path: "/" },
+    { name: "Home", icon: <Home size={22} />, path: "/dashboard" },
     { name: "Advice", icon: <Leaf size={22} />, path: "/advice" },
     { name: "Schemes", icon: <FileText size={22} />, path: "/schemes" },
     { name: "Profile", icon: <User size={22} />, path: "/profile" },
