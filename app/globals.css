@@ -49,3 +49,13 @@ body {
     scrollbar-width: none;
   }
 }
+@layer utilities {
+  /* Scrollbar hide panna */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+}
