@@ -2,8 +2,15 @@
 
 import React from 'react';
 import { Sun, Zap, Edit3, ChevronRight } from "lucide-react";
+import { useRouter } from 'next/navigation';
 
 export default function DashboardPage() {
+  const router = useRouter();
+
+  // Navigation handlers
+  const goToAdvice = () => router.push('/advice');
+  const goToSchemes = () => router.push('/schemes');
+  const goToSensors = () => router.push('/sensors');
   return (
     <div className="min-h-screen bg-[#F4F7F5] p-4 md:p-8 space-y-8 pb-20">
 
@@ -27,7 +34,11 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Today's Guidance Card */}
-        <div className="p-8 bg-white rounded-[2.5rem] shadow-sm border-b-8 border-b-yellow-400 flex flex-col justify-between group cursor-pointer hover:shadow-md transition-all">
+        {/* Added onClick here too so the whole card is clickable */}
+        <div 
+          onClick={goToAdvice}
+          className="p-8 bg-white rounded-[2.5rem] shadow-sm border-b-8 border-b-yellow-400 flex flex-col justify-between group cursor-pointer hover:shadow-md transition-all"
+        >
           <div className="flex justify-between items-start">
             <div className="p-4 bg-yellow-50 text-yellow-600 rounded-2xl"><Sun size={32} /></div>
             <span className="bg-stone-100 text-stone-500 text-xs font-black px-3 py-1 rounded-lg uppercase">Today</span>
@@ -37,17 +48,24 @@ export default function DashboardPage() {
               <h3 className="text-2xl font-bold text-stone-800">Today's Guidance</h3>
               <p className="text-stone-400 font-medium mt-1">💧 Irrigation • 🌱 Fertilizer</p>
             </div>
-            <div className="p-2 bg-stone-50 rounded-full text-stone-300 group-hover:text-[#067A52] transition-colors">
+            <div 
+              className="p-2 bg-stone-50 rounded-full text-stone-300 group-hover:text-[#067A52] transition-colors"
+            >
               <ChevronRight size={28} />
             </div>
           </div>
         </div>
 
-        {/* Govt Schemes with Mock Images */}
+        {/* Govt Schemes */}
         <div className="p-8 bg-white rounded-[2.5rem] shadow-sm border border-stone-100 flex flex-col">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-xl font-bold text-stone-800">Govt Schemes</h3>
-            <button className="text-[#067A52] font-bold text-sm hover:underline">See All</button>
+            <button 
+              onClick={goToSchemes}
+              className="text-[#067A52] font-bold text-sm hover:underline"
+            >
+              See All
+            </button>
           </div>
           <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
             {[
@@ -75,7 +93,9 @@ export default function DashboardPage() {
 
         <div className="p-6 bg-white rounded-[2rem] shadow-sm flex items-center gap-6 border border-stone-50 hover:bg-stone-50/50 transition-colors cursor-pointer">
           <div className="p-4 bg-purple-50 text-purple-500 rounded-3xl"><Zap size={32} /></div>
-          <div><h4 className="text-lg font-bold text-stone-800">Smart Sensors</h4><p className="text-stone-500 font-medium">Motor: <span className="text-red-500 font-bold uppercase">Off</span> • Soil: 62%</p></div>
+          <div><h4
+            onClick={goToSensors}
+           className="text-lg font-bold text-stone-800">Smart Sensors</h4><p className="text-stone-500 font-medium">Motor: <span className="text-red-500 font-bold uppercase">Off</span> • Soil: 62%</p></div>
         </div>
 
       </div>
