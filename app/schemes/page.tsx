@@ -1,5 +1,5 @@
 "use client";
-
+import { useRouter } from 'next/navigation';
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { 
@@ -14,8 +14,10 @@ import {
 } from "lucide-react";
 
 export default function SchemesPage() {
+  const router = useRouter();
   const [activeFilter, setActiveFilter] = useState("all");
-
+  const gotoapply =() =>router.push('/schemes/applystage');
+  const gotodetail =() =>router.push('/schemes/details');
   // Mock data for featured carousel
   const featuredSchemes = [
     { id: 1, title: "PM-KISAN", desc: "Annual income support of ₹6,000", image: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=400", tag: "Central" },
@@ -88,7 +90,9 @@ export default function SchemesPage() {
                   <p className="text-xs text-stone-400">{scheme.level} • {scheme.category}</p>
                 </div>
               </div>
-              <button className="text-[#067A52] font-bold text-sm flex items-center gap-1">Apply <ChevronRight size={14} /></button>
+              <button 
+                onClick={gotoapply}
+              className="text-[#067A52] font-bold text-sm flex items-center gap-1">Apply <ChevronRight size={14} /></button>
             </div>
           ))}
         </div>
@@ -119,7 +123,9 @@ export default function SchemesPage() {
               </div>
               <h4 className="text-xl font-bold text-stone-800 mb-2">{scheme.title}</h4>
               <p className="text-stone-400 text-sm font-medium mb-6 leading-relaxed">Available for farmers with more than 1 acre of land in {scheme.level}.</p>
-              <button className="w-full py-4 rounded-2xl bg-stone-50 text-stone-800 font-bold hover:bg-[#067A52] hover:text-white transition-all">
+              <button
+              onClick={gotodetail}
+               className="w-full py-4 rounded-2xl bg-stone-50 text-stone-800 font-bold hover:bg-[#067A52] hover:text-white transition-all">
                 View Details
               </button>
             </motion.div>
