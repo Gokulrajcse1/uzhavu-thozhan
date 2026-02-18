@@ -115,7 +115,7 @@ export default function Sidebar() {
           <div className="bg-[#067A52] p-2.5 rounded-[1rem] text-white shadow-xl shadow-green-100">
             <Leaf size={26} fill="white" />
           </div>
-          <h1 className="text-3xl font-black text-[#067A52] tracking-tighter italic">Gokul</h1>
+          <h2 className="text-3xl font-black text-[#067A52] tracking-tighter italic">Uzhavu Thozhan</h2>
         </div>
 
         {/* Navigation */}
