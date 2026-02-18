@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react"; // State import pannanum
 import { Bell } from "lucide-react";
-import NotificationsPage from "@/app/notification/page";
+import { useLanguage } from "../context/LanguageContext"; // Language context import pannunga
 
 export default function Header() {
-  // 1. Language state-a inga thaan define pannanum
-  const [language, setLanguage] = useState("EN");
+  // context-la irundhu current language (lang), maathura function (setLang), 
+  // matrum dictionary (t) -ah edukkurom
+  const { lang, setLang, t } = useLanguage();
 
   return (
     <header className="bg-white/60 backdrop-blur-xl border border-white rounded-[2rem] lg:rounded-[3.5rem] p-6 lg:p-8 mb-10 shadow-xl shadow-emerald-900/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative overflow-hidden">
@@ -18,26 +18,29 @@ export default function Header() {
           Thursday 5 February • Live
         </p>
         <h1 className="text-2xl lg:text-4xl font-black text-stone-800 tracking-tighter">
-          Good Morning, <span className="text-emerald-600">Farmer Gokulraj</span>
+          {/* Hardcoded text-ah maathi t.greeting use pannunga */}
+          {t.greeting}, <span className="text-emerald-600">{t.farmer} Gokulraj</span>
         </h1>
       </div>
 
       <div className="flex items-center justify-between w-full md:w-auto gap-4">
-        {/* Language Selection Toggle - Fixed State error */}
+        {/* Language Selection Toggle */}
         <div className="bg-white/80 backdrop-blur-md p-1.5 rounded-full border border-stone-200 shadow-sm flex items-center gap-1">
           <button 
-            onClick={() => setLanguage("EN")}
+            onClick={() => setLang("en")} // State "en" nu set aagum
             className={`px-4 lg:px-6 py-2 rounded-full text-[10px] lg:text-xs font-black transition-all duration-300 ${
-              language === "EN" ? "bg-[#067A52] text-white shadow-lg shadow-green-200" : "text-stone-400 hover:text-stone-600"
+              lang === "en" ? "bg-[#067A52] text-white shadow-lg shadow-green-200" : "text-stone-400 hover:text-stone-600"
             }`}
+            aria-label="Switch to English"
           >
             ENGLISH
           </button>
           <button 
-            onClick={() => setLanguage("TA")}
+            onClick={() => setLang("ta")} // State "ta" nu set aagum
             className={`px-4 lg:px-6 py-2 rounded-full text-[10px] lg:text-xs font-black transition-all duration-300 ${
-              language === "TA" ? "bg-[#067A52] text-white shadow-lg shadow-green-200" : "text-stone-400 hover:text-stone-600"
+              lang === "ta" ? "bg-[#067A52] text-white shadow-lg shadow-green-200" : "text-stone-400 hover:text-stone-600"
             }`}
+            aria-label="தமிழ் மொழிக்கு மாற்றவும்"
           >
             தமிழ்
           </button>
@@ -45,7 +48,7 @@ export default function Header() {
 
         {/* Bell Icon */}
         <button
-          aria-label="bell"
+          aria-label="View notifications"
           onClick={() => {
             window.location.href = "/notification";
           }}
