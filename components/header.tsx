@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react"; // State import pannanum
 import { Bell } from "lucide-react";
+import NotificationsPage from "@/app/notification/page";
 
 export default function Header() {
   // 1. Language state-a inga thaan define pannanum
@@ -45,6 +46,9 @@ export default function Header() {
         {/* Bell Icon */}
         <button
           aria-label="bell"
+          onClick={() => {
+            window.location.href = "/notification";
+          }}
           className="bg-white p-4 rounded-[1.2rem] lg:rounded-[1.5rem] text-emerald-600 shadow-xl shadow-emerald-100 border border-stone-50 relative hover:scale-105 active:scale-90 transition-all"
         >
           <Bell size={24} />
