@@ -11,6 +11,7 @@ export default function DashboardPage() {
   const goToAdvice = () => router.push('/advice');
   const goToSchemes = () => router.push('/schemes');
   const goToSensors = () => router.push('/sensors');
+  const gotoWeather =() => router.push('weather');
   return (
     <div className="min-h-screen bg-[#F4F7F5] p-4 md:p-8 space-y-8 pb-20">
 
@@ -88,7 +89,9 @@ export default function DashboardPage() {
         {/* Weather & Sensors */}
         <div className="p-6 bg-white rounded-[2rem] shadow-sm flex items-center gap-6 border border-stone-50 hover:bg-stone-50/50 transition-colors cursor-pointer">
           <div className="p-4 bg-blue-50 text-blue-500 rounded-3xl"><Sun size={32} /></div>
-          <div><h4 className="text-lg font-bold text-stone-800">Weather Summary</h4><p className="text-stone-500 font-medium">32°C • Clear Sky</p></div>
+          <div><h4 
+          onClick={gotoWeather}
+          className="text-lg font-bold text-stone-800">Weather Summary</h4><p className="text-stone-500 font-medium">32°C • Clear Sky</p></div>
         </div>
 
         <div className="p-6 bg-white rounded-[2rem] shadow-sm flex items-center gap-6 border border-stone-50 hover:bg-stone-50/50 transition-colors cursor-pointer">
