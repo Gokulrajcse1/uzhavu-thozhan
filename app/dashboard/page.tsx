@@ -71,7 +71,8 @@ export default function DashboardPage() {
           <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
             {[
               { title: "PM-Kisan", tag: "Subsidy", img: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=400&q=80" },
-              { title: "Insurance", tag: "Security", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" }
+              { title: "Insurance", tag: "Security", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&q=80" },
+              { title: "PM-KISAN",  tag: "Central", img: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=400" },
             ].map((s, i) => (
               <div key={i} className="min-w-[180px] bg-stone-50 rounded-[1.5rem] overflow-hidden group cursor-pointer border border-stone-100">
                 <div className="h-24 overflow-hidden">
