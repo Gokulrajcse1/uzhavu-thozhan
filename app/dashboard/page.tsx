@@ -12,6 +12,7 @@ export default function DashboardPage() {
   const goToSchemes = () => router.push('/schemes');
   const goToSensors = () => router.push('/sensors');
   const gotoWeather =() => router.push('weather');
+  const goToEditCrop = () => router.push('/editcropinfo');
   return (
     <div className="min-h-screen bg-[#F4F7F5] p-4 md:p-8 space-y-8 pb-20">
 
@@ -26,7 +27,9 @@ export default function DashboardPage() {
             <h2 className="text-xl font-bold text-stone-800">paddy • Thanjavur</h2>
           </div>
         </div>
-        <button className="flex items-center gap-2 bg-green-50 text-[#067A52] px-5 py-2 rounded-full font-bold hover:bg-green-100 transition-colors">
+        <button
+         onClick={goToEditCrop} 
+        className="flex items-center gap-2 bg-green-50 text-[#067A52] px-5 py-2 rounded-full font-bold hover:bg-green-100 transition-colors">
           <Edit3 size={18} /> Edit
         </button>
       </div>
